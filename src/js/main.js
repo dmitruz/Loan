@@ -7,6 +7,9 @@ import ShowInfo from './modules/showInfo';
 import Download from './modules/download';
 
 window.addEventListener('DOMContentLoaded', () => {
+  const slider = new MainSlider({ btns: '.next', container: '.page' });
+  slider.render();
+
   const modulePageSlider = new MainSlider({ container: '.moduleapp', btns: '.next' });
   modulePageSlider.render();
 
@@ -28,6 +31,14 @@ window.addEventListener('DOMContentLoaded', () => {
     autoplay: true,
   });
   modulesSlider.init();
+
+  const feedSlider = new MiniSlider({
+    container: '.feed__slider',
+    prev: '.feed__slider .slick-prev',
+    next: '.feed__slider .slick-next',
+    activeClass: 'feed__item-active',
+  });
+  feedSlider.init();
 
   new VideoPlayer('.showup .play', '.overlay').init();
   new VideoPlayer('.module__video-item .play', '.overlay').init();
